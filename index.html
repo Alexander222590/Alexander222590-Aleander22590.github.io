@@ -1,170 +1,380 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ford Galaxy | Anime Trailers & News</title>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Ford Galaxy - Your ultimate anime trailer and news platform. Watch trending trailers, discover upcoming anime, and stay updated with the latest news.">
+    <meta name="keywords" content="anime, trailers, streaming, news, studios, Ford Galaxy">
+    <meta name="author" content="Ford Galaxy">
+    <title>Ford Galaxy - Anime Trailers & News</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%2387CEEB'/><text x='50' y='60' font-size='40' font-weight='bold' text-anchor='middle' fill='white'>FG</text></svg>">
 </head>
 <body>
-
-    <!-- NAVIGATION BAR -->
-    <header class="navbar">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo"><i class="fa-solid :fa-shuttle-space"></i> Ford <span>Galaxy</span></a>
-            <nav class="nav-links">
-                <a href="#" class="active">Home</a>
-                <a href="#">Trailers</a>
-                <a href="#">Anime</a>
-                <a href="#">News</a>
-                <a href="#">Studios</a>
-            </nav>
-            <div class="nav-actions">
-                <div class="search-box">
-                    <input type="text" placeholder="Search anime...">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="logo">
+                <span class="logo-icon">🌌</span>
+                <span class="logo-text">Ford Galaxy</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#trailers" class="nav-link">Trailers</a>
+                <a href="#anime" class="nav-link">Anime</a>
+                <a href="#news" class="nav-link">News</a>
+                <a href="#studios" class="nav-link">Studios</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-right">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search anime...">
+                    <button class="search-btn">🔍</button>
                 </div>
-                <button id="theme-toggle" aria-label="Toggle Theme">
-                    <i class="fa-solid fa-sun"></i>
-                </button>
-                <button class="btn-profile"><i class="fa-regular fa-user"></i></button>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- HERO BANNER -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="badge">Trending #1</span>
-            <h1>Chainsaw Man: Reze Arc</h1>
-            <p>The highly anticipated sequel movie covering the explosive Reze Arc. Watch the official teaser trailer now ahead of the global premiere.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary watch-trailer-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"><i class="fa-solid fa-play"></i> Watch Now</button>
-                <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> Watchlist</button>
+    <!-- Hero Banner -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 600%22><defs><linearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%2387CEEB;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%233366cc;stop-opacity:1%22/></linearGradient></defs><rect width=%221200%22 height=%22600%22 fill=%22url(%23grad)%22/><text x=%22600%22 y=%22300%22 font-size=%22100%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22white%22 opacity=%220.3%22>ANIME</text></svg>')">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to Ford Galaxy</h1>
+                    <p class="hero-subtitle">Discover the latest anime trailers and stay updated with the anime world</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('trailers')">Watch Now</button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('anime')">Latest Trailer</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <main class="container">
-        <!-- TRENDING TRAILERS -->
-        <section class="section">
+    <!-- Trending Trailers -->
+    <section class="section" id="trailers">
+        <div class="container">
             <h2 class="section-title">Trending Trailers</h2>
-            <div class="grid grid-4">
-                <!-- Card 1 -->
-                <div class="card trailer-card watch-trailer-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500&auto=format&fit=crop&q=60" alt="Anime">
-                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+            <div class="trailers-grid">
+                <!-- Trailer Card 1 -->
+                <div class="trailer-card" onclick="openTrailerModal('https://www.youtube.com/embed/videoseries?list=PLF0t6VCtsF4VidXk7c1VaQj0hKCPDqx6i')">
+                    <div class="trailer-thumbnail">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22><defs><linearGradient id=%22grad1%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%2387CEEB;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%233366cc;stop-opacity:1%22/></linearGradient></defs><rect width=%22300%22 height=%22400%22 fill=%22url(%23grad1)%22/><text x=%22150%22 y=%22200%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>Anime 1</text></svg>" alt="Anime Title 1">
+                        <div class="play-icon">▶</div>
                     </div>
-                    <div class="card-content">
-                        <h3>Demon Slayer: Infinity Castle</h3>
-                        <p>Movie Part 1 • Oct 2026</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="card trailer-card watch-trailer-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500&auto=format&fit=crop&q=60" alt="Anime">
-                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
-                    </div>
-                    <div class="card-content">
-                        <h3>Jujutsu Kaisen Season 3</h3>
-                        <p>Episode 1 Teaser • Jan 2027</p>
+                    <div class="trailer-info">
+                        <h3>Attack on Titan</h3>
+                        <p class="trailer-episode">Season 4 Episode 16</p>
+                        <p class="trailer-date">Released: Dec 2023</p>
                     </div>
                 </div>
-                <!-- Card 3 -->
-                <div class="card trailer-card watch-trailer-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?w=500&auto=format&fit=crop&q=60" alt="Anime">
-                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+
+                <!-- Trailer Card 2 -->
+                <div class="trailer-card" onclick="openTrailerModal('https://www.youtube.com/embed/videoseries?list=PLF0t6VCtsF4VidXk7c1VaQj0hKCPDqx6i')">
+                    <div class="trailer-thumbnail">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22><defs><linearGradient id=%22grad2%22 x1=%220%25%22 y1=%220%25%22 x2=%2250%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%23FF6B9D;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%23C239B3;stop-opacity:1%22/></linearGradient></defs><rect width=%22300%22 height=%22400%22 fill=%22url(%23grad2)%22/><text x=%22150%22 y=%22200%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>Anime 2</text></svg>" alt="Anime Title 2">
+                        <div class="play-icon">▶</div>
                     </div>
-                    <div class="card-content">
-                        <h3>My Hero Academia Finale</h3>
-                        <p>Official Trailer • Aug 2026</p>
+                    <div class="trailer-info">
+                        <h3>Demon Slayer</h3>
+                        <p class="trailer-episode">Movie: Mugen Train</p>
+                        <p class="trailer-date">Released: Oct 2023</p>
                     </div>
                 </div>
-                <!-- Card 4 -->
-                <div class="card trailer-card watch-trailer-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop&q=60" alt="Anime">
-                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+
+                <!-- Trailer Card 3 -->
+                <div class="trailer-card" onclick="openTrailerModal('https://www.youtube.com/embed/videoseries?list=PLF0t6VCtsF4VidXk7c1VaQj0hKCPDqx6i')">
+                    <div class="trailer-thumbnail">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22><defs><linearGradient id=%22grad3%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%220%25%22><stop offset=%220%25%22 style=%22stop-color:%23FFD700;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%23FFA500;stop-opacity:1%22/></linearGradient></defs><rect width=%22300%22 height=%22400%22 fill=%22url(%23grad3)%22/><text x=%22150%22 y=%22200%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>Anime 3</text></svg>" alt="Anime Title 3">
+                        <div class="play-icon">▶</div>
                     </div>
-                    <div class="card-content">
-                        <h3>Kaiju No. 8 Season 2</h3>
-                        <p>PV 2 • Jul 2026</p>
+                    <div class="trailer-info">
+                        <h3>Jujutsu Kaisen</h3>
+                        <p class="trailer-episode">Season 2 Finale</p>
+                        <p class="trailer-date">Released: Dec 2023</p>
+                    </div>
+                </div>
+
+                <!-- Trailer Card 4 -->
+                <div class="trailer-card" onclick="openTrailerModal('https://www.youtube.com/embed/videoseries?list=PLF0t6VCtsF4VidXk7c1VaQj0hKCPDqx6i')">
+                    <div class="trailer-thumbnail">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22><defs><linearGradient id=%22grad4%22 x1=%220%25%22 y1=%220%25%22 x2=%220%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%2300FF88;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%2300CC99;stop-opacity:1%22/></linearGradient></defs><rect width=%22300%22 height=%22400%22 fill=%22url(%23grad4)%22/><text x=%22150%22 y=%22200%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>Anime 4</text></svg>" alt="Anime Title 4">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="trailer-info">
+                        <h3>My Hero Academia</h3>
+                        <p class="trailer-episode">Season 6 Premiere</p>
+                        <p class="trailer-date">Released: Nov 2023</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- LATEST NEWS -->
-        <section class="section">
+    <!-- Upcoming Anime -->
+    <section class="section upcoming" id="anime">
+        <div class="container">
+            <h2 class="section-title">Upcoming Anime</h2>
+            <div class="upcoming-grid">
+                <!-- Upcoming Item 1 -->
+                <div class="upcoming-card">
+                    <div class="upcoming-image">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 250 350%22><defs><linearGradient id=%22grad5%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%238B4789;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%23C77DFF;stop-opacity:1%22/></linearGradient></defs><rect width=%22250%22 height=%22350%22 fill=%22url(%23grad5)%22/><text x=%22125%22 y=%22175%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22white%22>Coming 2024</text></svg>" alt="Upcoming Anime">
+                    </div>
+                    <div class="upcoming-info">
+                        <h3>Upcoming Title 1</h3>
+                        <div class="countdown">
+                            <span class="countdown-item"><span class="countdown-number">45</span><span class="countdown-label">Days</span></span>
+                            <span class="countdown-item"><span class="countdown-number">12</span><span class="countdown-label">Hours</span></span>
+                            <span class="countdown-item"><span class="countdown-number">30</span><span class="countdown-label">Mins</span></span>
+                        </div>
+                        <div class="genres">
+                            <span class="genre-tag">Action</span>
+                            <span class="genre-tag">Adventure</span>
+                        </div>
+                        <button class="btn btn-small">Add to Watchlist</button>
+                    </div>
+                </div>
+
+                <!-- Upcoming Item 2 -->
+                <div class="upcoming-card">
+                    <div class="upcoming-image">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 250 350%22><defs><linearGradient id=%22grad6%22 x1=%220%25%22 y1=%220%25%22 x2=%2250%25%22 y2=%2250%25%22><stop offset=%220%25%22 style=%22stop-color:%231E90FF;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%2300BFFF;stop-opacity:1%22/></linearGradient></defs><rect width=%22250%22 height=%22350%22 fill=%22url(%23grad6)%22/><text x=%22125%22 y=%22175%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22white%22>Coming 2024</text></svg>" alt="Upcoming Anime">
+                    </div>
+                    <div class="upcoming-info">
+                        <h3>Upcoming Title 2</h3>
+                        <div class="countdown">
+                            <span class="countdown-item"><span class="countdown-number">32</span><span class="countdown-label">Days</span></span>
+                            <span class="countdown-item"><span class="countdown-number">08</span><span class="countdown-label">Hours</span></span>
+                            <span class="countdown-item"><span class="countdown-number">15</span><span class="countdown-label">Mins</span></span>
+                        </div>
+                        <div class="genres">
+                            <span class="genre-tag">Romance</span>
+                            <span class="genre-tag">Comedy</span>
+                        </div>
+                        <button class="btn btn-small">Add to Watchlist</button>
+                    </div>
+                </div>
+
+                <!-- Upcoming Item 3 -->
+                <div class="upcoming-card">
+                    <div class="upcoming-image">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 250 350%22><defs><linearGradient id=%22grad7%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%220%25%22><stop offset=%220%25%22 style=%22stop-color:%23FF1493;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%23FF69B4;stop-opacity:1%22/></linearGradient></defs><rect width=%22250%22 height=%22350%22 fill=%22url(%23grad7)%22/><text x=%22125%22 y=%22175%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22white%22>Coming 2024</text></svg>" alt="Upcoming Anime">
+                    </div>
+                    <div class="upcoming-info">
+                        <h3>Upcoming Title 3</h3>
+                        <div class="countdown">
+                            <span class="countdown-item"><span class="countdown-number">58</span><span class="countdown-label">Days</span></span>
+                            <span class="countdown-item"><span class="countdown-number">20</span><span class="countdown-label">Hours</span></span>
+                            <span class="countdown-item"><span class="countdown-number">45</span><span class="countdown-label">Mins</span></span>
+                        </div>
+                        <div class="genres">
+                            <span class="genre-tag">Fantasy</span>
+                            <span class="genre-tag">Mystery</span>
+                        </div>
+                        <button class="btn btn-small">Add to Watchlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="section news" id="news">
+        <div class="container">
             <h2 class="section-title">Latest News</h2>
-            <div class="grid grid-3">
-                <div class="card news-card">
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&auto=format&fit=crop&q=60" alt="News">
-                    <div class="card-content">
-                        <span class="date">July 2, 2026</span>
-                        <h3>Studio MAPPA Announces New Original Sci-Fi Project</h3>
-                        <p>Production has officially begun on a groundbreaking space-opera scheduled for late next year.</p>
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><defs><linearGradient id=%22news1%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%23667eea;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%23764ba2;stop-opacity:1%22/></linearGradient></defs><rect width=%22400%22 height=%22250%22 fill=%22url(%23news1)%22/><text x=%22200%22 y=%22125%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>News Update</text></svg>" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">Jan 15, 2024</span>
+                        <h3>Attack on Titan Final Season Release Date Announced</h3>
+                        <p>The highly anticipated final season of Attack on Titan will premiere on January 22, 2024, with exclusive streaming on major platforms worldwide.</p>
+                        <a href="#" class="read-more">Read More →</a>
                     </div>
                 </div>
-                <div class="card news-card">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60" alt="News">
-                    <div class="card-content">
-                        <span class="date">June 28, 2026</span>
-                        <h3>Light Novel Hit "Galaxy Edge" Getting Anime Adaptation</h3>
-                        <p>The best-selling cosmic fantasy novel series is officially making its way to the small screen.</p>
+
+                <!-- News Card 2 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><defs><linearGradient id=%22news2%22 x1=%220%25%22 y1=%220%25%22 x2=%2250%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%23f093fb;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%23f5576c;stop-opacity:1%22/></linearGradient></defs><rect width=%22400%22 height=%22250%22 fill=%22url(%23news2)%22/><text x=%22200%22 y=%22125%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>News Update</text></svg>" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">Jan 12, 2024</span>
+                        <h3>Jujutsu Kaisen Creator Announces New Manga Project</h3>
+                        <p>After the success of Jujutsu Kaisen, the creator is working on an exciting new supernatural manga project. Details will be revealed next month.</p>
+                        <a href="#" class="read-more">Read More →</a>
                     </div>
                 </div>
-                <div class="card news-card">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=60" alt="News">
-                    <div class="card-content">
-                        <span class="date">June 24, 2026</span>
-                        <h3>Top 10 Most Anticipated Anime Trailers of the Summer</h3>
-                        <p>We break down the biggest community-voted teasers dominating social media this month.</p>
+
+                <!-- News Card 3 -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 250%22><defs><linearGradient id=%22news3%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%220%25%22><stop offset=%220%25%22 style=%22stop-color:%234facfe;stop-opacity:1%22/><stop offset=%22100%25%22 style=%22stop-color:%2300f2fe;stop-opacity:1%22/></linearGradient></defs><rect width=%22400%22 height=%22250%22 fill=%22url(%23news3)%22/><text x=%22200%22 y=%22125%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>News Update</text></svg>" alt="News Image">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">Jan 10, 2024</span>
+                        <h3>Studio Ghibli Announces New Film in Development</h3>
+                        <p>The legendary animation studio is developing an original fantasy film expected to release in 2025. The project features a collaborative team of renowned artists.</p>
+                        <a href="#" class="read-more">Read More →</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- VIDEO MODAL POPUP -->
-    <div class="modal" id="videoModal">
+    <!-- Popular Studios -->
+    <section class="section studios" id="studios">
+        <div class="container">
+            <h2 class="section-title">Popular Studios</h2>
+            <div class="studios-grid">
+                <!-- Studio 1 -->
+                <div class="studio-card">
+                    <div class="studio-logo">
+                        <div class="logo-placeholder">📺</div>
+                    </div>
+                    <h3>Studio A</h3>
+                    <p class="studio-count">24 Anime</p>
+                    <p class="studio-description">Leading studio known for action-packed anime series</p>
+                    <button class="btn btn-small">View Studio</button>
+                </div>
+
+                <!-- Studio 2 -->
+                <div class="studio-card">
+                    <div class="studio-logo">
+                        <div class="logo-placeholder">🎬</div>
+                    </div>
+                    <h3>Studio B</h3>
+                    <p class="studio-count">18 Anime</p>
+                    <p class="studio-description">Specialists in romantic and slice-of-life anime</p>
+                    <button class="btn btn-small">View Studio</button>
+                </div>
+
+                <!-- Studio 3 -->
+                <div class="studio-card">
+                    <div class="studio-logo">
+                        <div class="logo-placeholder">🌟</div>
+                    </div>
+                    <h3>Studio C</h3>
+                    <p class="studio-count">32 Anime</p>
+                    <p class="studio-description">Renowned for fantasy and supernatural themed works</p>
+                    <button class="btn btn-small">View Studio</button>
+                </div>
+
+                <!-- Studio 4 -->
+                <div class="studio-card">
+                    <div class="studio-logo">
+                        <div class="logo-placeholder">✨</div>
+                    </div>
+                    <h3>Studio D</h3>
+                    <p class="studio-count">15 Anime</p>
+                    <p class="studio-description">Innovative studio pushing creative boundaries</p>
+                    <button class="btn btn-small">View Studio</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Ford Galaxy</h2>
+                    <p>Ford Galaxy is your ultimate destination for anime trailers, news, and discovery. We bring together the best of the anime world in one modern, user-friendly platform.</p>
+                    <p>Our mission is to connect anime enthusiasts with the latest releases, exclusive trailers, and in-depth information about studios and creators shaping the future of anime.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>Anime Tracked</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Studios</p>
+                        </div>
+                        <div class="stat">
+                            <h3>1000+</h3>
+                            <p>Trailers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-features">
+                    <h3>Why Choose Ford Galaxy?</h3>
+                    <ul class="features-list">
+                        <li>✅ Latest anime trailers in HD</li>
+                        <li>✅ Real-time news updates</li>
+                        <li>✅ Comprehensive studio directory</li>
+                        <li>✅ Advanced search functionality</li>
+                        <li>✅ Light/Dark mode support</li>
+                        <li>✅ Mobile-responsive design</li>
+                        <li>✅ Curated recommendations</li>
+                        <li>✅ Community engagement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Ford Galaxy</h4>
+                    <p>Your gateway to the anime universe</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#trailers">Trailers</a></li>
+                        <li><a href="#anime">Upcoming</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#studios">Studios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Discord</a>
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ford Galaxy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Trailer Modal -->
+    <div class="modal" id="trailerModal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="video-container">
-                <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <button class="modal-close" onclick="closeTrailerModal()">&times;</button>
+            <div class="modal-player">
+                <iframe id="trailerFrame" width="100%" height="600" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <a href="#" class="logo"><i class="fa-solid fa-shuttle-space"></i> Ford <span>Galaxy</span></a>
-                <p>Your premier destination for high-definition anime trailers, news, and studio updates.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="footer-socials">
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Ford Galaxy. All rights reserved.
-        </div>
-    </footer>
-
     <script src="script.js"></script>
 </body>
-                          </html>
+</html>
